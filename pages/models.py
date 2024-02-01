@@ -53,7 +53,7 @@ class Job(models.Model):
 
     def __str__(self):
         return self.job_name
-# count_job = Job.objects.count()
+
 
 class How_It_Works(models.Model):
     icon_select = (
@@ -104,11 +104,11 @@ class Contact(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField()
     subject = models.CharField(max_length=255)
-
     def __str__(self):
         return self.name
     
-
+class Contact_Img(models.Model):
+    back_img = models.ImageField(upload_to='images/back_img/')
 class Info_Data(models.Model):
     city_name = models.CharField(max_length=100) 
     street_name = models.CharField(max_length=100) 
@@ -118,7 +118,6 @@ class Info_Data(models.Model):
 
     def __str__(self):
         return self.city_name
-
 
 
 
