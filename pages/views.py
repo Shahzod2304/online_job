@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
 # Create your views here.
 
@@ -81,8 +81,15 @@ def Contact_View(request):
 def Elements(request):
     return render(request, 'elements.html')
 
-def Job_Detail(request):
-    return render(request, 'job_detail.html')
+
+
+
+
+
+
+def Job_Detail(request, pk):
+    data_detail = get_object_or_404(News, pk=pk)
+    return render(request, 'job_details.html', {'data_detail': data_detail})
 
 def Job_Listing(request):
     featured_jobs = Job.objects.all()
