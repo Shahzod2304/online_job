@@ -88,7 +88,7 @@ def Elements(request):
 
 
 def Job_Detail(request, pk):
-    data_detail = get_object_or_404(News, pk=pk)
+    data_detail = get_object_or_404(Job, pk=pk)
     return render(request, 'job_details.html', {'data_detail': data_detail})
 
 def Job_Listing(request):
