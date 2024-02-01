@@ -312,7 +312,9 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p>|   Properties</p>
-                                    <h3><a href="single-blog.html">{{b.title}}</a></h3>
+                                {% if b.title %}
+                                <h3><a href="{% url 'job_detail' pk=b.pk %}">{{ b.title }}</a></h3>
+                                {% endif %}
                                     <a href="#" class="more-btn">Read more »</a>
                                 </div>
                             </div>
