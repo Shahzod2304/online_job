@@ -93,6 +93,10 @@ class News(models.Model):
     img = models.ImageField(upload_to='images/blog/')
     data = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=100)
+    description1 = models.CharField(max_length=255)  
+    description2 = models.CharField(max_length=255) 
+    frame_data = models.CharField(max_length=255) 
+    author = models.CharField(max_length=30)
 
     def __str__(self):
         return self.title[:30]
@@ -121,6 +125,15 @@ class Info_Data(models.Model):
 
 
 
+class Comment(models.Model):
+    text = models.TextField()
+    email = models.EmailField()
+    name = models.CharField(max_length=30)
+    web_url = models.URLField()
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
+    
 
 
 

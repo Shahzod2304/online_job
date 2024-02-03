@@ -87,7 +87,7 @@ def Elements(request):
 
 
 
-def Job_Detail(request, pk):
+def Job_Detail(request, pk):    
     data_detail = get_object_or_404(Job, pk=pk)
     return render(request, 'job_details.html', {'data_detail': data_detail})
 
@@ -103,8 +103,24 @@ def Job_Listing(request):
 def Main(request):
     return render(request, 'main.html')
 
-def Single_Blog(request):
-    return render(request, 'single-blog.html')
+def Single_Blog(request, pk):
+    blog_post = get_object_or_404(News, pk=pk)
+    comment_data = Comment.objects.all()[:3]
+    comment_soni = Comment.objects.count()
+    if request.method == "POST":
+        text = request.POST.get('text')
+        email = request.POST.get('email')
+        name = request.POST.get('name')
+        web_url = request.POST.get('web_url')
+        data_comment = Comment(text=text, email=email, name=name, web_url=web_url)
+        data_comment.save()
+    context = {
+        'blog_post': blog_post,
+        'comment_data':comment_data,
+        'comment_soni':comment_soni
+    }
+    
+    return render(request, 'single-blog.html', context)
 
 
 

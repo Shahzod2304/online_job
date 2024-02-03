@@ -9,5 +9,5 @@ urlpatterns = [
     path('job_detail/<int:pk>/', Job_Detail, name='job_detail'),
     path('job_listing/', Job_Listing, name='job_listing'),
     path('main/', Main, name='main'),
-    path('single_blog/', Single_Blog, name='single_blog'),
+    path('single_blog/<int:pk>/', Single_Blog, name='single_blog'),
 ]
