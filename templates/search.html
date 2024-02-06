@@ -23,10 +23,10 @@
             <div class="single-job-items mb-30">
                 <div class="job-items">
                     <div class="company-img">
-                        <a href="job_details.html"><img src="{{product.job_img.url}}" width="90px" alt=""></a>
+                        <a href="{% url 'job_detail' pk=product.pk %}"><img src="{{product.job_img.url}}" width="90px" alt=""></a>
                     </div>
                     <div class="job-tittle">
-                        <a href="job_details.html">
+                        <a href="{% url 'job_detail' pk=product.pk %}">
                             <h4>{{product.job_name}}</h4>
                         </a>
                         <ul>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="items-link f-right">
-                    <a href="job_details.html">{{product.job_category}}</a>
+                    <a href="{% url 'job_detail' pk=product.pk %}">{{product.job_category}}</a>
                     <span>{{pub_date}}</span>
                 </div>
             </div>

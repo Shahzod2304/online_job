@@ -11,4 +11,5 @@ urlpatterns = [
     path('main/', Main, name='main'),
     path('search/', Search_Data, name='search'),
     path('single_blog/<int:pk>/', Single_Blog, name='single_blog'),
+    
 ]

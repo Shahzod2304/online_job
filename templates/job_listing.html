@@ -221,10 +221,10 @@
                                 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
-                                            <a href="#"><img src="{{x.job_img.url}}" width="90px" alt=""></a>
+                                            <a href="{% url 'job_detail' pk=x.pk %}"><img src="{{x.job_img.url}}" width="90px" alt=""></a>
                                         </div>
                                         <div class="job-tittle">
-                                            <a href="#"><h4>{{x.job_name}}</h4></a>
+                                            <a href="{% url 'job_detail' pk=x.pk %}"><h4>{{x.job_name}}</h4></a>
                                             <ul>
                                                 <li>{{x.company_name}}</li>
                                                 <li><i class="fas fa-map-marker-alt"></i>{{x.location}}</li>
