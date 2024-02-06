@@ -4,12 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% include "header.html" %}
 </head>
 <body>
     {% include 'navbar.html' %}
 
 
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <!-- single-job-content -->
 
+            
+          
+
+            <hr><br>
+            <h3>Search Results:</h3>
+            {% for product in results %} 
+            <div class="single-job-items mb-30">
+                <div class="job-items">
+                    <div class="company-img">
+                        <a href="job_details.html"><img src="{{product.job_img.url}}" width="90px" alt=""></a>
+                    </div>
+                    <div class="job-tittle">
+                        <a href="job_details.html">
+                            <h4>{{product.job_name}}</h4>
+                        </a>
+                        <ul>
+                            <li>{{product.company_name}}</li>
+                            <li><i class="fas fa-map-marker-alt"></i>{{product.location}}</li>
+                            <li>${{product.salary}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="items-link f-right">
+                    <a href="job_details.html">{{product.job_category}}</a>
+                    <span>{{pub_date}}</span>
+                </div>
+            </div>
+            {% empty %}
+            <hr><br><br><br>
+                <h1 style="text-align: center;">No results found.</h1>
+            {% endfor %}
+    
+        </div>
+    </div>
 
 
 

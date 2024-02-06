@@ -12,7 +12,12 @@ def Home(request):
     team_content = Team_About.objects.all()
     what_we = What_We_Are_Doing.objects.all()
     
-
+    query = request.GET.get('q')
+    if query:
+        results = Job.objects.filter(name__icontains=query) | Job.objects.filter(description__icontains=query)
+    else:
+        results = []
+    
 
     if request.method == "POST":
         file_resume = request.POST.get('file_resume')
@@ -25,7 +30,9 @@ def Home(request):
         'featured_jobs':featured_jobs,
         'team_content':team_content,
         'what_we':what_we,
-        'blog_data':blog_data
+        'blog_data':blog_data,
+        'results':results,
+        'query':query
         
     }
     return render(request, 'index.html', context)
@@ -122,7 +129,13 @@ def Single_Blog(request, pk):
     
     return render(request, 'single-blog.html', context)
 
-
+def Search_Data(request):
+    query = request.GET.get('q')
+    if query:
+        results = Job.objects.filter(job_name__icontains=query) | Job.objects.filter(company_name__icontains=query)
+    else:
+        results = []
+    return render(request, 'search.html', {'results': results})
 
 
 

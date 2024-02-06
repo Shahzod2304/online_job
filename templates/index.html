@@ -27,24 +27,21 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="#" class="search-box">
+                                <form action="{% url 'search' %}" method="get" class="search-box">
+                                    {% csrf_token %}
                                     <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword">
+                                        <input type="text" name="q" placeholder="Job Title or keyword">
                                     </div>
                                     <div class="select-form">
                                         <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
-                                            </select>
+                                            <!-- Add any additional select options here if needed -->
                                         </div>
                                     </div>
                                     <div class="search-form">
-                                        <a href="#">Find job</a>
-                                    </div>	
-                                </form>	
+                                        <button type="submit">Find job</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
