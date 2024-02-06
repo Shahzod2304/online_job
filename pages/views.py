@@ -105,13 +105,13 @@ def Main(request):
 
 def Single_Blog(request, pk):
     blog_post = get_object_or_404(News, pk=pk)
-    comment_data = Comment.objects.all()[:3]
+    comment_data = Comment.objects.all()
     comment_soni = Comment.objects.count()
     if request.method == "POST":
-        text = request.POST.get('text')
-        email = request.POST.get('email')
-        name = request.POST.get('name')
-        web_url = request.POST.get('web_url')
+        text = request.POST['text']
+        email = request.POST['email']
+        name = request.POST['name']
+        web_url = request.POST['web_url']
         data_comment = Comment(text=text, email=email, name=name, web_url=web_url)
         data_comment.save()
     context = {
